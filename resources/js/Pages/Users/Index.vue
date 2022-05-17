@@ -4,7 +4,7 @@
 
         <div class="flex justify-between mb-6">
             <div class="flex items-center">
-                <h1 class="text-3xl">Gebruikers</h1>
+                <h1 class="text-3xl text-dark-font">Gebruikers</h1>
             </div>
 
             <!-- <input v-model="search" type="text" placeholder="Search..." class="border px-2 rounded-lg" /> -->
@@ -15,23 +15,25 @@
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr v-for="user in users" :key="user.id" :class="[user.isAdmin ? 'bg-sky-400' : '']">
+                            <tbody class="bg-white-bg divide-y divide-gray-200">
+                                <tr v-for="user in users" :key="user.id" :class="[user.isAdmin ? 'bg-primary' : '']">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div>
                                                 <div class="text-sm font-medium"
-                                                    :class="[user.isAdmin ? 'text-white' : 'text-gray-900']">
+                                                    :class="[user.isAdmin ? 'text-light-font' : 'text-dark-font']">
                                                     {{ user.name }}
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm" :class="[user.isAdmin ? 'text-white' : 'text-gray-900']">
+                                        <div class="text-sm"
+                                            :class="[user.isAdmin ? 'text-light-font' : 'text-dark-font']">
                                             {{ user.email }}
                                         </div>
-                                        <div class="text-sm" :class="[user.isAdmin ? 'text-white' : 'text-gray-900']">
+                                        <div class="text-sm"
+                                            :class="[user.isAdmin ? 'text-light-font' : 'text-dark-font']">
                                             {{ user.phone }}
                                         </div>
 

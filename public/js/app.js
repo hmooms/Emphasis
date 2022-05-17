@@ -23767,7 +23767,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex items-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-3xl"
+  "class": "text-3xl text-dark-font"
 }, "Gebruikers")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <input v-model=\"search\" type=\"text\" placeholder=\"Search...\" class=\"border px-2 rounded-lg\" /> ")], -1
 /* HOISTED */
 );
@@ -23788,7 +23788,7 @@ var _hoisted_6 = {
   "class": "min-w-full divide-y divide-gray-200"
 };
 var _hoisted_7 = {
-  "class": "bg-white divide-y divide-gray-200"
+  "class": "bg-white-bg divide-y divide-gray-200"
 };
 var _hoisted_8 = {
   "class": "px-6 py-4 whitespace-nowrap"
@@ -23808,17 +23808,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_7, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.users, function (user) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
           key: user.id,
-          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([user.isAdmin ? 'bg-sky-400' : ''])
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([user.isAdmin ? 'bg-primary' : ''])
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-sm font-medium", [user.isAdmin ? 'text-white' : 'text-gray-900']])
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-sm font-medium", [user.isAdmin ? 'text-light-font' : 'text-dark-font']])
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.name), 3
         /* TEXT, CLASS */
         )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-sm", [user.isAdmin ? 'text-white' : 'text-gray-900']])
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-sm", [user.isAdmin ? 'text-light-font' : 'text-dark-font']])
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.email), 3
         /* TEXT, CLASS */
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-sm", [user.isAdmin ? 'text-white' : 'text-gray-900']])
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-sm", [user.isAdmin ? 'text-light-font' : 'text-dark-font']])
         }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.phone), 3
         /* TEXT, CLASS */
         )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" \r\n                                    <td v-if=\"user.can.edit\"\r\n                                        class=\"px-6 py-4 whitespace-nowrap text-right text-sm font-medium\">\r\n                                        <Link :href=\"`/users/${user.id}/edit`\"\r\n                                            class=\"text-indigo-600 hover:text-indigo-900\"> Edit</Link>\r\n                                    </td> ")], 2
