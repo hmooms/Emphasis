@@ -11,6 +11,7 @@ import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue';
 
 defineProps({
     title: String,
+    can: Object
 });
 
 const showingNavigationDropdown = ref(false);
@@ -27,7 +28,7 @@ const logout = () => {
 
         <JetBanner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-light-bg">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,6 +45,12 @@ const logout = () => {
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
+                                </JetNavLink>
+                            </div>
+
+                            <div v-if="can.seeUsers" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <JetNavLink :href="route('users')" :active="route().current('users')">
+                                    Gebruikers
                                 </JetNavLink>
                             </div>
                         </div>
@@ -124,6 +131,10 @@ const logout = () => {
                         <JetResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </JetResponsiveNavLink>
+                        <JetResponsiveNavLink v-if="can.seeUsers" :href="route('users')"
+                            :active="route().current('users')">
+                            Gebruikers
+                        </JetResponsiveNavLink>
                     </div>
 
                     <!-- Responsive Settings Options -->
@@ -165,7 +176,7 @@ const logout = () => {
             </header>
 
             <!-- Page Content -->
-            <main class="container mx-auto">
+            <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 <slot />
             </main>
         </div>
