@@ -65,17 +65,6 @@ return [
             ]) : [],
         ],
 
-        'mysql_heroku_production' => [
-            'driver' => 'mysql',
-            'host' => $host,
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
-            'charset' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix' => '',
-        ],
-
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
