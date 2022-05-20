@@ -19,7 +19,7 @@ Route::middleware([
     Route::get('/', function () {
         return Inertia::render('Dashboard', [
             'can' => [
-                'seeUsers' => Auth::User()->isAdmin
+                'seeUsers' => Auth::User()->is_admin
             ]
         ]);
     })->name('dashboard');

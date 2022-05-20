@@ -13,9 +13,9 @@ class UsersController extends Controller
     public function index() 
     {
         return Inertia::render('Users/Index',[
-            'users' => User::orderBy('isAdmin', 'desc')->orderBy('name')->select('id', 'name', 'email', 'phone', 'isAdmin')->get(),
+            'users' => User::orderBy('is_admin', 'desc')->orderBy('name')->select('id', 'name', 'email', 'phone', 'is_admin')->get(),
             'can' => [
-                'seeUsers' => Auth::user()->isAdmin
+                'seeUsers' => Auth::user()->is_admin
             ]
         ]);
     }
