@@ -16,12 +16,12 @@
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
                             <tbody class="bg-white-bg divide-y divide-gray-200">
-                                <tr v-for="user in users" :key="user.id" :class="[user.isAdmin ? 'bg-primary' : '']">
+                                <tr v-for="user in users" :key="user.id" :class="[user.is_admin ? 'bg-primary' : '']">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div>
                                                 <div class="text-sm font-medium"
-                                                    :class="[user.isAdmin ? 'text-light-font' : 'text-dark-font']">
+                                                    :class="[user.is_admin ? 'text-light-font' : 'text-dark-font']">
                                                     {{ user.name }}
                                                 </div>
                                             </div>
@@ -29,11 +29,11 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm"
-                                            :class="[user.isAdmin ? 'text-light-font' : 'text-dark-font']">
+                                            :class="[user.is_admin ? 'text-light-font' : 'text-dark-font']">
                                             {{ user.email }}
                                         </div>
                                         <div class="text-sm"
-                                            :class="[user.isAdmin ? 'text-light-font' : 'text-dark-font']">
+                                            :class="[user.is_admin ? 'text-light-font' : 'text-dark-font']">
                                             {{ user.phone }}
                                         </div>
 
