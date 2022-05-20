@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Str;
 
-$url = parse_url(getenv("DATABASE_URL"));
 
 
 return [
@@ -66,7 +65,7 @@ return [
             ]) : [],
         ],
 
-        'mysql_heroku_production' => array(
+        'mysql_heroku_production' => [
             'driver' => 'mysql',
             'host' => $host,
             'database' => $database,
@@ -75,19 +74,21 @@ return [
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
-        ),
+        ],
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => $url["host"],
-            'port' => $url["port"],
-            'database' => ltrim($url["path"], "/"),
-            'username' => $url["user"],
-            'password' => $url["pass"],
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
+            'prefix_indexes' => true,
             'schema' => 'public',
-            'sslmode' => 'require',
+            'sslmode' => 'prefer',
         ],
 
         'sqlsrv' => [
