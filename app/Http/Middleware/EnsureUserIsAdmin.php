@@ -19,7 +19,7 @@ class EnsureUserIsAdmin
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
-            if (Auth::user()->isAdmin) {
+            if (Auth::user()->is_admin) {
                 return $next($request);
             }
         }

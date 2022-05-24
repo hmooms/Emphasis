@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'phone' => '0612341234',
             'remember_token' => Str::random(10),
-            'isAdmin' => true,
+            'is_admin' => true,
         ]);
     }
 }
