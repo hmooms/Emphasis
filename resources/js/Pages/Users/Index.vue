@@ -1,6 +1,6 @@
 <template>
 
-    <AppLayout title="Gebruikers" :can=can>
+    <AppLayout title="Gebruikers">
 
         <div class="flex justify-between mb-6">
             <div class="flex items-center">
@@ -61,8 +61,7 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 
 defineProps({
-    users: Array,
-    can: Object
+    users: Array
 })
 
 </script>

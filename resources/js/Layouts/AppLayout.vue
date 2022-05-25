@@ -11,7 +11,6 @@ import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue';
 
 defineProps({
     title: String,
-    can: Object
 });
 
 const showingNavigationDropdown = ref(false);
@@ -48,7 +47,7 @@ const logout = () => {
                                 </JetNavLink>
                             </div>
 
-                            <div v-if="can.seeUsers" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <div v-if="$page.props.user.is_admin" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <JetNavLink :href="route('users')" :active="route().current('users')">
                                     Gebruikers
                                 </JetNavLink>
@@ -131,7 +130,7 @@ const logout = () => {
                         <JetResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </JetResponsiveNavLink>
-                        <JetResponsiveNavLink v-if="can.seeUsers" :href="route('users')"
+                        <JetResponsiveNavLink v-if="$page.props.user.is_admin" :href="route('users')"
                             :active="route().current('users')">
                             Gebruikers
                         </JetResponsiveNavLink>

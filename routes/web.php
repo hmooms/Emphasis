@@ -17,10 +17,6 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/', function () {
-        return Inertia::render('Dashboard', [
-            'can' => [
-                'seeUsers' => Auth::User()->is_admin
-            ]
-        ]);
+        return Inertia::render('Dashboard');
     })->name('dashboard');
 });
