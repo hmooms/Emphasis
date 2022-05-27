@@ -1,3 +1,14 @@
+<script setup>
+import AppLayout from '@/Layouts/AppLayout.vue';
+import { Link } from '@inertiajs/inertia-vue3';
+
+
+defineProps({
+    users: Array
+})
+
+</script>
+
 <template>
 
     <AppLayout title="Gebruikers">
@@ -9,11 +20,17 @@
 
             <!-- <input v-model="search" type="text" placeholder="Search..." class="border px-2 rounded-lg" /> -->
         </div>
-
+        <div class="mb-5">
+            <Link :href="route('users-create')" class="">
+            <div class="min-w-full py-4 px-6 bg-white-bg border border-gray-200 hover:bg-gray-300 hover:cursor-pointer">
+                <p class="text-2xl text-center text-dark-font">Gebruiker aanmaken</p>
+            </div>
+            </Link>
+        </div>
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <div class="shadow overflow-hidden border-b border-gray-200">
                         <table class="min-w-full divide-y divide-gray-200">
                             <tbody class="bg-white-bg divide-y divide-gray-200">
                                 <tr v-for="user in users" :key="user.id" :class="[user.is_admin ? 'bg-primary' : '']">
@@ -56,12 +73,3 @@
 </template>
 
 
-
-<script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
-
-defineProps({
-    users: Array
-})
-
-</script>
