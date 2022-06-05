@@ -16,12 +16,33 @@ class UsersController extends Controller
             'users' => User::orderBy('is_admin', 'desc')->orderBy('name')->select('id', 'name', 'email', 'phone', 'is_admin')->get()
         ]);
     }
-}
 
-// ->map(fn($user) => [
-//     'id' => $user->id,
-//     'name' => $user->name,
-//     'email' => $user->email,
-//     'phone' => $user->phone,
-//     'isAdmin' => $user->isAdmin
-// ])->sortBy('isAdmin'),
+    public function create()
+    {
+        return Inertia::render('Users/Create');
+    }
+
+    public function store(Request $request)
+    {
+
+        //  validate
+        $validated = $request->validate([
+            'email' => 'required|unique:users|max:255|email',
+            'name' => 'required|max:255',
+            'phone' => 'required|max:15|unique:users',
+            'is_admin' => 'boolean',
+            'password' => 'required|max:16'
+        ]);
+        // create a user
+        $user = new User($validated);
+        // create tmp password
+
+        
+        $user->encryptPassword();
+
+        // save to db
+        $user->save();
+        // if success go to users page
+        return redirect('users');
+    }
+}
