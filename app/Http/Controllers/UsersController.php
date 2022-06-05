@@ -45,4 +45,17 @@ class UsersController extends Controller
         // if success go to users page
         return redirect('users');
     }
+
+    public function updateProfile(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'email' => 'required|max:255|email|unique:users,email,'.$id,
+            'name' => 'required|max:255',
+            'phone' => 'required|max:15|unique:users,phone,'.$id
+        ]);
+        User::find($id)->update($validated);
+        // $user->update($validated);
+
+        return redirect('/');
+    }
 }

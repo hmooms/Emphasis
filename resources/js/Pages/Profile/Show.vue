@@ -1,15 +1,9 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import DeleteUserForm from '@/Pages/Profile/Partials/DeleteUserForm.vue';
 import JetSectionBorder from '@/Jetstream/SectionBorder.vue';
-import LogoutOtherBrowserSessionsForm from '@/Pages/Profile/Partials/LogoutOtherBrowserSessionsForm.vue';
 import UpdatePasswordForm from '@/Pages/Profile/Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from '@/Pages/Profile/Partials/UpdateProfileInformationForm.vue';
 
-defineProps({
-    confirmsTwoFactorAuthentication: Boolean,
-    sessions: Array,
-});
 </script>
 
 <template>
@@ -33,15 +27,6 @@ defineProps({
 
                     <JetSectionBorder />
                 </div>
-
-
-                <LogoutOtherBrowserSessionsForm :sessions="sessions" class="mt-10 sm:mt-0" />
-
-                <template v-if="$page.props.jetstream.hasAccountDeletionFeatures">
-                    <JetSectionBorder />
-
-                    <DeleteUserForm class="mt-10 sm:mt-0" />
-                </template>
             </div>
         </div>
     </AppLayout>

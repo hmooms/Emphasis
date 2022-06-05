@@ -18,25 +18,21 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     public function update($user, array $input)
     {
-        Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
-        ])->validateWithBag('updateProfileInformation');
+        // Validator::make($input, [
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+        //     'phone' => ['required', 'string', 'max:15'],
+        // ])->validateWithBag('updateProfileInformation');
 
-        if (isset($input['photo'])) {
-            $user->updateProfilePhoto($input['photo']);
-        }
+        $validated = $input->validate([
+            'email' => 'required|unique:users|max:255|email',
+            'name' => 'required|max:255',
+            'phone' => 'required|max:15|unique:users',
+        ]);
 
-        if ($input['email'] !== $user->email &&
-            $user instanceof MustVerifyEmail) {
-            $this->updateVerifiedUser($user, $input);
-        } else {
-            $user->forceFill([
-                'name' => $input['name'],
-                'email' => $input['email'],
-            ])->save();
-        }
+        $user->update($validated);
+
+        return redirect('dashboard');
     }
 
     /**
