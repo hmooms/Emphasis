@@ -9,32 +9,7 @@ use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
 
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 {
-    /**
-     * Validate and update the given user's profile information.
-     *
-     * @param  mixed  $user
-     * @param  array  $input
-     * @return void
-     */
-    public function update($user, array $input)
-    {
-        // Validator::make($input, [
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-        //     'phone' => ['required', 'string', 'max:15'],
-        // ])->validateWithBag('updateProfileInformation');
-
-        $validated = $input->validate([
-            'email' => 'required|unique:users|max:255|email',
-            'name' => 'required|max:255',
-            'phone' => 'required|max:15|unique:users',
-        ]);
-
-        $user->update($validated);
-
-        return redirect('dashboard');
-    }
-
+    
     /**
      * Update the given verified user's profile information.
      *

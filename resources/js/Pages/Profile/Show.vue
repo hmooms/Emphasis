@@ -10,7 +10,7 @@ import UpdateProfileInformationForm from '@/Pages/Profile/Partials/UpdateProfile
     <AppLayout title="Profile">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Profile
+                Gegevens
             </h2>
         </template>
 

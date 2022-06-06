@@ -1,9 +1,7 @@
 <script setup>
-import { useForm } from '@inertiajs/inertia-vue3';
 import JetButton from '@/Jetstream/Button.vue';
 import JetFormSection from '@/Jetstream/FormSection.vue';
 import JetInput from '@/Jetstream/Input.vue';
-import JetInputError from '@/Jetstream/InputError.vue';
 import JetLabel from '@/Jetstream/Label.vue';
 import JetActionMessage from '@/Jetstream/ActionMessage.vue';
 import { reactive } from 'vue';
@@ -29,11 +27,11 @@ let updateProfileInformation = () => {
 <template>
     <JetFormSection @submitted="updateProfileInformation">
         <template #title>
-            Profile Information
+            Gebruikers gegevens
         </template>
 
         <template #description>
-            Update your account's profile information and email address.
+            Verander uw gegevens.
         </template>
 
         <template #form>
@@ -41,13 +39,13 @@ let updateProfileInformation = () => {
 
             <!-- Name -->
             <div class="col-span-6 sm:col-span-4">
-                <JetLabel for="name" value="Name" />
+                <JetLabel for="name" value="Naam" />
                 <JetInput id="name" v-model="form.name" type="text" class="mt-1 block w-full" autocomplete="name" />
             </div>
 
             <!-- Email -->
             <div class="col-span-6 sm:col-span-4">
-                <JetLabel for="email" value="Email" />
+                <JetLabel for="email" value="E-mail" />
                 <JetInput id="email" v-model="form.email" type="email" class="mt-1 block w-full" />
             </div>
 
@@ -60,11 +58,11 @@ let updateProfileInformation = () => {
 
         <template #actions>
             <JetActionMessage :on="form.recentlySuccessful" class="mr-3">
-                Saved.
+                Veranderd.
             </JetActionMessage>
 
             <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+                Verander
             </JetButton>
         </template>
     </JetFormSection>
