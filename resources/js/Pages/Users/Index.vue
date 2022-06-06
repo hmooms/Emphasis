@@ -1,11 +1,15 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import { Inertia } from '@inertiajs/inertia';
 import { Link } from '@inertiajs/inertia-vue3';
 
 
 defineProps({
     users: Array
 })
+
+
+Inertia.reload();
 
 </script>
 
@@ -21,7 +25,7 @@ defineProps({
             <!-- <input v-model="search" type="text" placeholder="Search..." class="border px-2 rounded-lg" /> -->
         </div>
         <div class="mb-5">
-            <Link :href="route('users-create')" class="">
+            <Link :href="route('user-create')" class="">
             <div class="min-w-full py-4 px-6 bg-white-bg border border-gray-200 hover:bg-gray-300 hover:cursor-pointer">
                 <p class="text-2xl text-center text-dark-font">Gebruiker aanmaken</p>
             </div>
@@ -36,11 +40,9 @@ defineProps({
                                 <tr v-for="user in users" :key="user.id" :class="[user.is_admin ? 'bg-primary' : '']">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            <div>
-                                                <div class="text-sm font-medium"
-                                                    :class="[user.is_admin ? 'text-light-font' : 'text-dark-font']">
-                                                    {{ user.name }}
-                                                </div>
+                                            <div class="text-sm font-medium"
+                                                :class="[user.is_admin ? 'text-light-font' : 'text-dark-font']">
+                                                {{ user.name }}
                                             </div>
                                         </div>
                                     </td>
@@ -53,14 +55,13 @@ defineProps({
                                             :class="[user.is_admin ? 'text-light-font' : 'text-dark-font']">
                                             {{ user.phone }}
                                         </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <Link v-if="!user.is_admin" :href="route('user-delete')" method="delete"
+                                            :data="{ id: user.id }" class="text-2xl text-danger" preserve-scroll> X
+                                        </Link>
 
                                     </td>
-                                    <!-- 
-                                    <td v-if="user.can.edit"
-                                        class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <Link :href="`/users/${user.id}/edit`"
-                                            class="text-indigo-600 hover:text-indigo-900"> Edit</Link>
-                                    </td> -->
                                 </tr>
                             </tbody>
                         </table>

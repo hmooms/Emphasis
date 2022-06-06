@@ -1697,6 +1697,10 @@ select {
   --tw-text-opacity: 1;
   color: rgb(246 246 246 / var(--tw-text-opacity));
 }
+.text-danger {
+  --tw-text-opacity: 1;
+  color: rgb(255 50 50 / var(--tw-text-opacity));
+}
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
