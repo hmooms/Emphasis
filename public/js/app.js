@@ -20768,7 +20768,7 @@ __webpack_require__.r(__webpack_exports__);
     });
 
     var updateProfileInformation = function updateProfileInformation() {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__.Inertia.put("/users/".concat(props.user.id), form);
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__.Inertia.put("/user/".concat(props.user.id), form);
     };
 
     var __returned__ = {

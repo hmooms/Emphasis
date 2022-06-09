@@ -21,5 +21,5 @@ Route::middleware([
     Route::get('/', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
-    Route::put('/users/{user-id}', [UsersController::class, 'updateProfile'])->name('updateProfile');
+    Route::put('/user/{id}', [UsersController::class, 'updateProfile'])->name('updateProfile');
 });

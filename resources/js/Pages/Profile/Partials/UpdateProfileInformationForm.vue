@@ -19,7 +19,7 @@ let form = reactive({
 
 
 let updateProfileInformation = () => {
-    Inertia.put(`/users/${props.user.id}`, form);
+    Inertia.put(`/user/${props.user.id}`, form);
 };
 
 </script>

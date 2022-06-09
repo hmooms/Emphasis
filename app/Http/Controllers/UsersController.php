@@ -56,7 +56,7 @@ class UsersController extends Controller
         User::find($id)->update($validated);
         // $user->update($validated);
 
-        return redirect('/');
+        return redirect(route('profile.show'));
     }
 
     public function delete(Request $request)
