@@ -3,11 +3,9 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import { Inertia } from '@inertiajs/inertia';
 import { Link } from '@inertiajs/inertia-vue3';
 
-
 defineProps({
     users: Array
 })
-
 
 Inertia.reload();
 
@@ -22,7 +20,6 @@ Inertia.reload();
                 <h1 class="text-3xl text-dark-font">Gebruikers</h1>
             </div>
 
-            <!-- <input v-model="search" type="text" placeholder="Search..." class="border px-2 rounded-lg" /> -->
         </div>
         <div class="mb-5">
             <Link :href="route('user-create')" class="">
@@ -56,12 +53,6 @@ Inertia.reload();
                                             {{ user.phone }}
                                         </div>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <Link v-if="!user.is_admin" :href="route('user-delete')" method="delete"
-                                            :data="{ id: user.id }" class="text-2xl text-danger" preserve-scroll> X
-                                        </Link>
-
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -69,6 +60,7 @@ Inertia.reload();
                 </div>
             </div>
         </div>
+
     </AppLayout>
 
 </template>
