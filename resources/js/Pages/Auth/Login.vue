@@ -62,19 +62,21 @@ const submit = () => {
                     <span class="ml-2 text-sm text-gray-600">Onthoud mij</span>
                 </label>
             </div>
-            <!-- 
-                Will be implemented later
+
 
             <div class="flex items-center justify-end mt-4">
-                <Link v-if="canResetPassword" :href="route('password.request')"
+                <!-- 
+                    Will be implemented later
+                    
+                    <Link v-if="canResetPassword" :href="route('password.request')"
                     class="underline text-sm text-gray-600 hover:text-gray-900">
                 Wachtwoord vergeten?
-                </Link>
+                </Link> -->
 
                 <JetButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Inloggen
                 </JetButton>
-            </div> -->
+            </div>
         </form>
     </JetAuthenticationCard>
 </template>
