@@ -15,7 +15,7 @@ let form = reactive({
 
 
 let submit = () => {
-    Inertia.post('/users', form);
+    Inertia.post('/user', form);
 };
 
 </script>
