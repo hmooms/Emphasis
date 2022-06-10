@@ -9,6 +9,10 @@ defineProps({
 
 Inertia.reload();
 
+let editUser = (id) => {
+    Inertia.get(`/user/profile/${id}`);
+};
+
 </script>
 
 <template>
@@ -34,7 +38,9 @@ Inertia.reload();
                     <div class="shadow overflow-hidden border-b border-gray-200">
                         <table class="min-w-full divide-y divide-gray-200">
                             <tbody class="bg-white-bg divide-y divide-gray-200">
-                                <tr v-for="user in users" :key="user.id" :class="[user.is_admin ? 'bg-primary' : '']">
+                                <tr v-for="user in users" :key="user.id"
+                                    :class="[user.is_admin ? 'bg-primary hover:bg-primary-hover' : 'hover:bg-gray-300']"
+                                    class="hover:cursor-pointer" @click="editUser(user.id)">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="text-sm font-medium"

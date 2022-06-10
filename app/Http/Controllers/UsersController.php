@@ -46,6 +46,13 @@ class UsersController extends Controller
         return redirect('users');
     }
 
+    public function show($id)
+    {
+        return Inertia::render('Profile/Show', [
+            'user' => User::find($id)
+        ]);
+    }
+
     public function updateProfile(Request $request, $id)
     {
         $validated = $request->validate([
