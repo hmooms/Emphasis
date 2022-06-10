@@ -13,6 +13,7 @@ let form = reactive({
     'is_admin': false
 });
 
+
 let submit = () => {
     Inertia.post('/users', form);
 };
@@ -39,8 +40,10 @@ let submit = () => {
                     </div>
                     <div class="mb-2">
                         <JetLabel for="password" value="Wachtwoord" class="text-lg" />
-                        <JetInput id="password" class="mt-1 block w-full lg:w-1/2" type="text" v-model="form.password"
-                            required autofocus />
+
+                        <JetInput id="password" class="mt-1 block w-full lg:w-1/2" type="password"
+                            v-model="form.password" required autofocus />
+
                     </div>
                     <div class="mb-2">
                         <JetLabel for="name" value="Naam" class="text-lg" />
