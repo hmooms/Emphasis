@@ -63,7 +63,7 @@ class UsersController extends Controller
         User::find($id)->update($validated);
         // $user->update($validated);
 
-        return redirect(route('profile.show'));
+        return back();
     }
 
     public function delete(Request $request)
