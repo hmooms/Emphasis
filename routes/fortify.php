@@ -52,16 +52,6 @@ Route::group(['middleware' => config('fortify.middleware', ['web'])], function (
             ->name('password.update');
     }
 
-
-
-
-    // Profile Information...
-    if (Features::enabled(Features::updateProfileInformation())) {
-        Route::put('/user/profile-information', [ProfileInformationController::class, 'update'])
-            ->middleware([config('fortify.auth_middleware', 'auth').':'.config('fortify.guard')])
-            ->name('user-profile-information.update');
-    }
-
     // Passwords...
     if (Features::enabled(Features::updatePasswords())) {
         Route::put('/user/password', [PasswordController::class, 'update'])
