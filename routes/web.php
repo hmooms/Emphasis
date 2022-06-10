@@ -1,5 +1,6 @@
 <?php
 
+use Laravel\Jetstream\Http\Controllers\Inertia\UserProfileController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -21,9 +22,11 @@ Route::middleware([
     Route::get('/', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::get('/user/profile', [UserProfileController::class, 'show'])->name('profile.show');
+
     Route::put('/user/{id}', [UsersController::class, 'updateProfile'])->name('updateProfile');
 });
 
 
 require_once __DIR__ . '/fortify.php';
-require_once __DIR__ . '/jetstream.php';
