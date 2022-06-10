@@ -21,7 +21,8 @@ module.exports = {
                 'light-font': '#F6F6F6',
                 'primary': '#7A98FF',
                 'danger': '#FF3232',
-                'success': '#7BFF88'
+                'success': '#7BFF88',
+                'primary-hover': '#5368ad'
             }
         },
     },
