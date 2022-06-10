@@ -23,3 +23,5 @@ Route::middleware([
     })->name('dashboard');
     Route::put('/user/{id}', [UsersController::class, 'updateProfile'])->name('updateProfile');
 });
+
+require_once __DIR__ . '/fortify.php';
