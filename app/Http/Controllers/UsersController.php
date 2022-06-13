@@ -48,8 +48,8 @@ class UsersController extends Controller
 
     public function show($id)
     {
-        return Inertia::render('Profile/Show', [
-            'user' => User::find($id)
+        return Inertia::render('Users/Show', [
+            'selectedUser' => User::find($id, ['id', 'name', 'email', 'phone', 'is_admin'])
         ]);
     }
 
@@ -61,7 +61,6 @@ class UsersController extends Controller
             'phone' => 'required|max:15|unique:users,phone,'.$id
         ]);
         User::find($id)->update($validated);
-        // $user->update($validated);
 
         return back();
     }
