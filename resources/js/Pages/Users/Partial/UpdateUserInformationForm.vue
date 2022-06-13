@@ -7,14 +7,14 @@ import JetActionMessage from '@/Jetstream/ActionMessage.vue';
 import { reactive } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
 
-const prop = defineProps({
+const props = defineProps({
     selectedUser: Object,
 });
 
 let form = reactive({
-    'name': prop.selectedUser.name,
-    'email': prop.selectedUser.email,
-    'phone': prop.selectedUser.phone,
+    'name': props.selectedUser.name,
+    'email': props.selectedUser.email,
+    'phone': props.selectedUser.phone,
 });
 
 
