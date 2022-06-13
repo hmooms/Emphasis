@@ -22,6 +22,7 @@ class EnsureUserIsAdmin
             if (Auth::user()->is_admin) {
                 return $next($request);
             }
+            return back();
         }
         return redirect('login'); 
     }
