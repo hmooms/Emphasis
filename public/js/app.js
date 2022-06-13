@@ -20872,13 +20872,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    selectedUser: Object
+  },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+    var props = __props;
     var confirmingUserDeletion = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
     var passwordInput = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.useForm)({
-      password: ''
+      password: '',
+      id: props.selectedUser.id
     });
 
     var confirmUserDeletion = function confirmUserDeletion() {
@@ -20889,7 +20894,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     var deleteUser = function deleteUser() {
-      form["delete"](route('current-user.destroy'), {
+      form["delete"](route('user-delete'), {
         preserveScroll: true,
         onSuccess: function onSuccess() {
           return closeModal();
@@ -20911,6 +20916,7 @@ __webpack_require__.r(__webpack_exports__);
     var __returned__ = {
       confirmingUserDeletion: confirmingUserDeletion,
       passwordInput: passwordInput,
+      props: props,
       form: form,
       confirmUserDeletion: confirmUserDeletion,
       deleteUser: deleteUser,
@@ -20966,11 +20972,11 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var prop = __props;
+    var props = __props;
     var form = (0,vue__WEBPACK_IMPORTED_MODULE_5__.reactive)({
-      'name': prop.selectedUser.name,
-      'email': prop.selectedUser.email,
-      'phone': prop.selectedUser.phone
+      'name': props.selectedUser.name,
+      'email': props.selectedUser.email,
+      'phone': props.selectedUser.phone
     });
 
     var updateProfileInformation = function updateProfileInformation() {
@@ -20978,7 +20984,7 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     var __returned__ = {
-      prop: prop,
+      props: props,
       form: form,
       updateProfileInformation: updateProfileInformation,
       JetButton: _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -21013,6 +21019,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Jetstream_SectionBorder_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Jetstream/SectionBorder.vue */ "./resources/js/Jetstream/SectionBorder.vue");
 /* harmony import */ var _Partial_UpdateUserInformationForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Partial/UpdateUserInformationForm.vue */ "./resources/js/Pages/Users/Partial/UpdateUserInformationForm.vue");
+/* harmony import */ var _Partial_DeleteUserForm_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Partial/DeleteUserForm.vue */ "./resources/js/Pages/Users/Partial/DeleteUserForm.vue");
+
 
 
 
@@ -21026,7 +21034,8 @@ __webpack_require__.r(__webpack_exports__);
     var __returned__ = {
       AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       JetSectionBorder: _Jetstream_SectionBorder_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-      UpdateUserInformationForm: _Partial_UpdateUserInformationForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+      UpdateUserInformationForm: _Partial_UpdateUserInformationForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+      DeleteUserForm: _Partial_DeleteUserForm_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -23265,9 +23274,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Delete Account ");
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Gebruiker verwijderen ");
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Permanently delete your account. ");
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Verwijder deze gebruiker permanent. ");
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "max-w-xl text-sm text-gray-600"
@@ -23539,7 +23548,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         selectedUser: $props.selectedUser
       }, null, 8
       /* PROPS */
-      , ["selectedUser"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetSectionBorder"])])])];
+      , ["selectedUser"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetSectionBorder"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["DeleteUserForm"], {
+        selectedUser: $props.selectedUser
+      }, null, 8
+      /* PROPS */
+      , ["selectedUser"])])])];
     }),
     _: 1
     /* STABLE */

@@ -2,6 +2,7 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import JetSectionBorder from '@/Jetstream/SectionBorder.vue';
 import UpdateUserInformationForm from './Partial/UpdateUserInformationForm.vue';
+import DeleteUserForm from './Partial/DeleteUserForm.vue';
 
 defineProps({
     selectedUser: Object
@@ -25,7 +26,7 @@ defineProps({
 
                 <JetSectionBorder />
 
-
+                <DeleteUserForm :selectedUser="selectedUser" />
             </div>
         </div>
     </AppLayout>

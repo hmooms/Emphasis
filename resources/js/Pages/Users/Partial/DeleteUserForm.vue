@@ -11,8 +11,13 @@ import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue';
 const confirmingUserDeletion = ref(false);
 const passwordInput = ref(null);
 
+const props = defineProps({
+    selectedUser: Object,
+})
+
 const form = useForm({
     password: '',
+    id: props.selectedUser.id
 });
 
 const confirmUserDeletion = () => {
@@ -22,7 +27,7 @@ const confirmUserDeletion = () => {
 };
 
 const deleteUser = () => {
-    form.delete(route('current-user.destroy'), {
+    form.delete(route('user-delete'), {
         preserveScroll: true,
         onSuccess: () => closeModal(),
         onError: () => passwordInput.value.focus(),
@@ -40,16 +45,17 @@ const closeModal = () => {
 <template>
     <JetActionSection>
         <template #title>
-            Delete Account
+            Gebruiker verwijderen
         </template>
 
         <template #description>
-            Permanently delete your account.
+            Verwijder deze gebruiker permanent.
         </template>
 
         <template #content>
             <div class="max-w-xl text-sm text-gray-600">
-                Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.
+                Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting
+                your account, please download any data or information that you wish to retain.
             </div>
 
             <div class="mt-5">
@@ -65,17 +71,13 @@ const closeModal = () => {
                 </template>
 
                 <template #content>
-                    Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.
+                    Are you sure you want to delete your account? Once your account is deleted, all of its resources and
+                    data will be permanently deleted. Please enter your password to confirm you would like to
+                    permanently delete your account.
 
                     <div class="mt-4">
-                        <JetInput
-                            ref="passwordInput"
-                            v-model="form.password"
-                            type="password"
-                            class="mt-1 block w-3/4"
-                            placeholder="Password"
-                            @keyup.enter="deleteUser"
-                        />
+                        <JetInput ref="passwordInput" v-model="form.password" type="password" class="mt-1 block w-3/4"
+                            placeholder="Password" @keyup.enter="deleteUser" />
 
                         <JetInputError :message="form.errors.password" class="mt-2" />
                     </div>
@@ -86,12 +88,8 @@ const closeModal = () => {
                         Cancel
                     </JetSecondaryButton>
 
-                    <JetDangerButton
-                        class="ml-3"
-                        :class="{ 'opacity-25': form.processing }"
-                        :disabled="form.processing"
-                        @click="deleteUser"
-                    >
+                    <JetDangerButton class="ml-3" :class="{ 'opacity-25': form.processing }" :disabled="form.processing"
+                        @click="deleteUser">
                         Delete Account
                     </JetDangerButton>
                 </template>

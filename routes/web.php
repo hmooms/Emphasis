@@ -12,13 +12,12 @@ Route::middleware('admin')->group(function () {
     Route::get('/user/create', [UsersController::class, 'create'])->name('user-create');
     Route::post('/user', [UsersController::class, 'store']);
     Route::get('/user/profile/{id}', [UsersController::class, 'show']);
-    Route::delete('/user', [UsersController::class, 'delete'])->name('user-delete');
+    Route::delete('/user', [UsersController::class, 'delete'])->name('user-delete')->middleware('confirm.password');
 });
 
 
 Route::middleware([
     'auth:sanctum',
-    config('jetstream.auth_session'),
 ])->group(function () {
     Route::get('/', function () {
         return Inertia::render('Dashboard');
