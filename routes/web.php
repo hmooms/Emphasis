@@ -23,7 +23,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     // user routes
     Route::get('/user/profile', [UserProfileController::class, 'show'])->name('profile.show');
-    Route::put('/user/{id}', [UsersController::class, 'updateProfile'])->name('updateProfile');
+    Route::put('/user/{id}', [UsersController::class, 'updateProfile'])->name('updateProfile')->middleware('user.or.admin');
 });
 
 
