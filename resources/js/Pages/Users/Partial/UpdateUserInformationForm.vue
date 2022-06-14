@@ -18,14 +18,14 @@ let form = reactive({
 });
 
 
-let updateProfileInformation = () => {
+let updateUserInformation = () => {
     Inertia.put(`/user/${prop.selectedUser.id}`, form);
 };
 
 </script>
 
 <template>
-    <JetFormSection @submitted="updateProfileInformation">
+    <JetFormSection @submitted="updateUserInformation">
         <template #title>
             Gebruikers gegevens
         </template>

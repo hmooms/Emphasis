@@ -20979,14 +20979,14 @@ __webpack_require__.r(__webpack_exports__);
       'phone': props.selectedUser.phone
     });
 
-    var updateProfileInformation = function updateProfileInformation() {
+    var updateUserInformation = function updateUserInformation() {
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__.Inertia.put("/user/".concat(prop.selectedUser.id), form);
     };
 
     var __returned__ = {
       props: props,
       form: form,
-      updateProfileInformation: updateProfileInformation,
+      updateUserInformation: updateUserInformation,
       JetButton: _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       JetFormSection: _Jetstream_FormSection_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
       JetInput: _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -23423,7 +23423,7 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNod
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["JetFormSection"], {
-    onSubmitted: $setup.updateProfileInformation
+    onSubmitted: $setup.updateUserInformation
   }, {
     title: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_1];
