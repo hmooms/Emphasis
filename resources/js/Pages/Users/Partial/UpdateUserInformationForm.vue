@@ -19,7 +19,7 @@ let form = reactive({
 
 
 let updateUserInformation = () => {
-    Inertia.put(`/user/${prop.selectedUser.id}`, form);
+    Inertia.put(`/user/${props.selectedUser.id}`, form);
 };
 
 </script>

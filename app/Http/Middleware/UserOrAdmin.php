@@ -17,7 +17,7 @@ class UserOrAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::user()->id === $request->user->id || !Auth::user()->is_admin ){
+        if (!Auth::user()->id === $request->id || !Auth::user()->is_admin ){
             return back();
         }
         return $next($request);

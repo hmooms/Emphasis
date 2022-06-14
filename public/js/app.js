@@ -20980,7 +20980,7 @@ __webpack_require__.r(__webpack_exports__);
     });
 
     var updateUserInformation = function updateUserInformation() {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__.Inertia.put("/user/".concat(prop.selectedUser.id), form);
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__.Inertia.put("/user/".concat(props.selectedUser.id), form);
     };
 
     var __returned__ = {
