@@ -16,15 +16,13 @@ Route::middleware('admin')->group(function () {
 });
 
 
-Route::middleware([
-    'auth:sanctum',
-])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
+    // user routes
     Route::get('/user/profile', [UserProfileController::class, 'show'])->name('profile.show');
-
     Route::put('/user/{id}', [UsersController::class, 'updateProfile'])->name('updateProfile');
 });
 
