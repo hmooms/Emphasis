@@ -26,5 +26,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::put('/user/{id}', [UsersController::class, 'updateProfile'])->name('updateProfile')->middleware('user.or.admin');
 });
 
-
+// I require the fortify routes because i disabled them in the fortifyprovider 
 require_once __DIR__ . '/fortify.php';
