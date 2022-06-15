@@ -11,7 +11,6 @@ import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue';
 
 defineProps({
     title: String,
-    can: Object
 });
 
 const showingNavigationDropdown = ref(false);
@@ -48,7 +47,7 @@ const logout = () => {
                                 </JetNavLink>
                             </div>
 
-                            <div v-if="can.seeUsers" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <div v-if="$page.props.user.is_admin" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <JetNavLink :href="route('users')" :active="route().current('users')">
                                     Gebruikers
                                 </JetNavLink>
@@ -60,13 +59,7 @@ const logout = () => {
                             <div class="ml-3 relative">
                                 <JetDropdown align="right" width="48">
                                     <template #trigger>
-                                        <button v-if="$page.props.jetstream.managesProfilePhotos"
-                                            class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                            <img class="h-8 w-8 rounded-full object-cover"
-                                                :src="$page.props.user.profile_photo_url" :alt="$page.props.user.name">
-                                        </button>
-
-                                        <span v-else class="inline-flex rounded-md">
+                                        <span class="inline-flex rounded-md">
                                             <button type="button"
                                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
                                                 {{ $page.props.user.name }}
@@ -84,11 +77,11 @@ const logout = () => {
                                     <template #content>
                                         <!-- Account Management -->
                                         <div class="block px-4 py-2 text-xs text-gray-400">
-                                            Manage Account
+                                            Account beheren
                                         </div>
 
                                         <JetDropdownLink :href="route('profile.show')">
-                                            Profile
+                                            Account gegevens
                                         </JetDropdownLink>
 
                                         <div class="border-t border-gray-100" />
@@ -96,7 +89,7 @@ const logout = () => {
                                         <!-- Authentication -->
                                         <form @submit.prevent="logout">
                                             <JetDropdownLink as="button">
-                                                Log Out
+                                                Uitloggen
                                             </JetDropdownLink>
                                         </form>
                                     </template>
@@ -131,7 +124,7 @@ const logout = () => {
                         <JetResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </JetResponsiveNavLink>
-                        <JetResponsiveNavLink v-if="can.seeUsers" :href="route('users')"
+                        <JetResponsiveNavLink v-if="$page.props.user.is_admin" :href="route('users')"
                             :active="route().current('users')">
                             Gebruikers
                         </JetResponsiveNavLink>
@@ -153,13 +146,13 @@ const logout = () => {
                         <div class="mt-3 space-y-1">
                             <JetResponsiveNavLink :href="route('profile.show')"
                                 :active="route().current('profile.show')">
-                                Profile
+                                Account gegevens
                             </JetResponsiveNavLink>
 
                             <!-- Authentication -->
                             <form method="POST" @submit.prevent="logout">
                                 <JetResponsiveNavLink as="button">
-                                    Log Out
+                                    Uitloggen
                                 </JetResponsiveNavLink>
                             </form>
 

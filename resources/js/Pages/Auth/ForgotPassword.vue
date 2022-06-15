@@ -21,6 +21,7 @@ const submit = () => {
 </script>
 
 <template>
+
     <Head title="Forgot Password" />
 
     <JetAuthenticationCard>
@@ -29,7 +30,8 @@ const submit = () => {
         </template>
 
         <div class="mb-4 text-sm text-gray-600">
-            Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.
+            Wachtwoord vergeten? Vul uw e-mailadres in en dan sturen wij u een e-mail met een link om een nieuw
+            wachtwoord aan te maken.
         </div>
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
@@ -40,20 +42,13 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <JetLabel for="email" value="Email" />
-                <JetInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                />
+                <JetLabel for="email" value="E-mail" />
+                <JetInput id="email" v-model="form.email" type="email" class="mt-1 block w-full" required autofocus />
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Email Password Reset Link
+                    Versturen
                 </JetButton>
             </div>
         </form>

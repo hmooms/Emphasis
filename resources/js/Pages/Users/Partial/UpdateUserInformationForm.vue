@@ -8,24 +8,24 @@ import { reactive } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
 
 const props = defineProps({
-    user: Object,
+    selectedUser: Object,
 });
 
 let form = reactive({
-    'name': props.user.name,
-    'email': props.user.email,
-    'phone': props.user.phone,
+    'name': props.selectedUser.name,
+    'email': props.selectedUser.email,
+    'phone': props.selectedUser.phone,
 });
 
 
-let updateProfileInformation = () => {
-    Inertia.put(`/user/${props.user.id}`, form);
+let updateUserInformation = () => {
+    Inertia.put(`/user/${props.selectedUser.id}`, form);
 };
 
 </script>
 
 <template>
-    <JetFormSection @submitted="updateProfileInformation">
+    <JetFormSection @submitted="updateUserInformation">
         <template #title>
             Gebruikers gegevens
         </template>
