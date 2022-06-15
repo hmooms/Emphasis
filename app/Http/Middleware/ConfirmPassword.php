@@ -4,10 +4,11 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 
-class EnsureUserIsAdmin
+class ConfirmPassword
 {
     /**
      * Handle an incoming request.
@@ -18,12 +19,11 @@ class EnsureUserIsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check()) {
-            if (Auth::user()->is_admin) {
-                return $next($request);
-            }
-            return back();
+        if (! Hash::check($request->password, Auth::user()->password)) {
+            return back()->withErrors([
+                'password' => ['Incorrect wachtwoord.']
+            ]);
         }
-        return redirect('login'); 
+        return $next($request);
     }
 }
