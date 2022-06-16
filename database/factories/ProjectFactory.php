@@ -24,11 +24,11 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->title(),
+            'title' => $this->faker->words(3, true),
             'customer' => $this->faker->company(),
             'description' => $this->faker->paragraph(),
-            'start_date' => $this->faker->dateTime(new \DateTime('-3 weeks')),
-            'end_date' => $this->faker->dateTime(new \DateTime('+3 weeks')),
+            'start_date' => $this->faker->dateTimeBetween('-3 weeks', '-5 days'),
+            'end_date' => $this->faker->dateTimeBetween('+1 day', '+3 weeks'),
             'is_completed' => false,
         ];
     }
