@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         
         Project::factory(5)->create();
 
+        // create admin user
         DB::table('users')->insert([
             'name' => 'Admin',
             'email' => 'admin@account.com',
@@ -31,6 +32,24 @@ class DatabaseSeeder extends Seeder
             'phone' => '0612341234',
             'remember_token' => Str::random(10),
             'is_admin' => true,
+        ]);
+
+        // create completed project
+        DB::table('projects')->insert([
+            'title' => 'completed project',
+            'customer' => 'Customer',
+            'description' => 'A great invention to solve the worlds biggest problem, bad internet speed',
+            'start_date' => new \DateTime(date('m/d/Y H:i:s', strtotime("-3 week"))),
+            'end_date' => new \DateTime(date('m/d/Y H:i:s', strtotime("-3 day"))),
+            'is_completed' => true
+        ]);
+
+        DB::table('projects')->insert([
+            'title' => 'overdue project',
+            'customer' => 'Customer',
+            'description' => 'kinda slow project',
+            'start_date' => new \DateTime(date('m/d/Y H:i:s', strtotime("-3 week"))),
+            'end_date' => new \DateTime(date('m/d/Y H:i:s', strtotime("-3 day"))),            'is_completed' => false
         ]);
 
         $users = User::where('is_admin', false)->get();
