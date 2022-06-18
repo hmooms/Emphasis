@@ -10,10 +10,10 @@ use Inertia\Inertia;
 
 Route::middleware('admin')->group(function () {
     Route::get('/users', [UsersController::class, 'index'])->name('users');
-    Route::get('/user/create', [UsersController::class, 'create'])->name('user-create');
+    Route::get('/user/create', [UsersController::class, 'create'])->name('user.create');
     Route::post('/user', [UsersController::class, 'store']);
     Route::get('/user/profile/{id}', [UsersController::class, 'show']);
-    Route::delete('/user', [UsersController::class, 'delete'])->name('user-delete')->middleware('confirm.password');
+    Route::delete('/user', [UsersController::class, 'delete'])->name('user.delete')->middleware('confirm.password');
 });
 
 
@@ -21,7 +21,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     // user routes
     Route::get('/user/profile', [UserProfileController::class, 'show'])->name('profile.show');
-    Route::put('/user/{id}', [UsersController::class, 'updateProfile'])->name('updateProfile')->middleware('user.or.admin');
+    Route::put('/user/{id}', [UsersController::class, 'updateProfile'])->middleware('user.or.admin');
 });
 
 // I require the fortify routes because i disabled them in the fortifyprovider 
