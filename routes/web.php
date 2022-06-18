@@ -2,6 +2,7 @@
 
 use Laravel\Jetstream\Http\Controllers\Inertia\UserProfileController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,10 +18,7 @@ Route::middleware('admin')->group(function () {
 
 
 Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('/', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
-
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     // user routes
     Route::get('/user/profile', [UserProfileController::class, 'show'])->name('profile.show');
     Route::put('/user/{id}', [UsersController::class, 'updateProfile'])->name('updateProfile')->middleware('user.or.admin');
