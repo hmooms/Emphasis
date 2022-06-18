@@ -26,7 +26,7 @@ let editUser = (id) => {
 
         </div>
         <div class="mb-5">
-            <Link :href="route('user-create')" class="">
+            <Link :href="route('user-create')">
             <div class="min-w-full py-4 px-6 bg-white-bg border border-gray-200 hover:bg-gray-300 hover:cursor-pointer">
                 <p class="text-2xl text-center text-dark-font">Gebruiker aanmaken</p>
             </div>
