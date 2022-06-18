@@ -1,5 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import { Link } from '@inertiajs/inertia-vue3';
 
 defineProps({
     projects: Array,
@@ -50,8 +51,13 @@ const isOverdue = (dueTime) => {
             <h2 class="text-3xl text-dark-font leading-tight mb-6">Projecten</h2>
 
             <!-- make project button -->
-            <div>
-
+            <div v-if="$page.props.user.is_admin" class="mb-5">
+                <Link :href="route('project.create')">
+                <div
+                    class="min-w-full py-4 px-6 bg-white-bg border border-gray-200 hover:bg-gray-300 hover:cursor-pointer">
+                    <p class="text-2xl text-center text-dark-font">Project aanmaken</p>
+                </div>
+                </Link>
             </div>
 
             <!-- project list -->
