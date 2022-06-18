@@ -11,4 +11,13 @@ class ProjectsController extends Controller
     {
         return Inertia::render('Project/Create');
     }
+
+    public function store(Request $request)
+    {
+        // validate
+
+        // store
+
+        return redirect('Dashboard');
+    }
 }

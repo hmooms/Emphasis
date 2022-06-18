@@ -20801,13 +20801,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Jetstream/Input.vue */ "./resources/js/Jetstream/Input.vue");
+/* harmony import */ var _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Jetstream/Label.vue */ "./resources/js/Jetstream/Label.vue");
+
+
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+    var form = (0,vue__WEBPACK_IMPORTED_MODULE_2__.reactive)({
+      title: '',
+      description: '',
+      customer: '',
+      contact: '',
+      contact_phone: '',
+      contact_email: '',
+      start_date: '',
+      end_date: '',
+      users: []
+    });
+    var is_company = (0,vue__WEBPACK_IMPORTED_MODULE_2__.ref)(false); // const submit = () => {
+    //     Inertia.post()
+    // }
+
     var __returned__ = {
-      AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+      form: form,
+      is_company: is_company,
+      AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+      Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia,
+      reactive: vue__WEBPACK_IMPORTED_MODULE_2__.reactive,
+      ref: vue__WEBPACK_IMPORTED_MODULE_2__.ref,
+      JetInput: _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+      JetLabel: _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -23128,9 +23158,216 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex justify-between mb-3 ml-7 lg:mb-6 lg:ml-0"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex items-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-3xl text-dark-font"
+}, "Project aanmaken")])], -1
+/* HOISTED */
+);
+
+var _hoisted_2 = {
+  "class": "flex flex-col"
+};
+var _hoisted_3 = {
+  "class": "overflow-x-auto lg:bg-white-bg px-7 lg:py-6"
+};
+var _hoisted_4 = {
+  "class": "mb-2"
+};
+var _hoisted_5 = {
+  "class": "mb-2"
+};
+var _hoisted_6 = {
+  "class": "mb-2 flex flex-col md:flex-row"
+};
+var _hoisted_7 = {
+  "class": "mb-2 md:mr-3 md:mb-0"
+};
+var _hoisted_8 = {
+  "class": "mb-2"
+};
+var _hoisted_9 = {
+  "class": "flex"
+};
+var _hoisted_10 = {
+  key: 0,
+  "class": "mb-2"
+};
+var _hoisted_11 = {
+  "class": "mb-2"
+};
+var _hoisted_12 = {
+  "class": "mb-2"
+};
+var _hoisted_13 = {
+  "class": "mb-2"
+};
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  type: "submit",
+  "class": "px-3 py-2 bg-primary text-light-font hover:bg-dark-font"
+}, "Aanmaken", -1
+/* HOISTED */
+);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["AppLayout"], {
     title: "Project aanmaken"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+        onSubmit: _cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+          return _ctx.submit && _ctx.submit.apply(_ctx, arguments);
+        }, ["prevent"]))
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" basic project information "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetLabel"], {
+        "for": "title",
+        value: "Project naam",
+        "class": "text-lg"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetInput"], {
+        id: "title",
+        "class": "mt-1 block w-full lg:w-1/2",
+        type: "text",
+        modelValue: $setup.form.title,
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+          return $setup.form.title = $event;
+        }),
+        required: "",
+        autofocus: ""
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetLabel"], {
+        "for": "description",
+        value: "Project beschrijving",
+        "class": "text-lg"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+        id: "description",
+        "class": "mt-1 block w-full lg:w-1/2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm text-dark-font",
+        type: "textarea",
+        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+          return $setup.form.description = $event;
+        }),
+        required: ""
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.description]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetLabel"], {
+        "for": "start_date",
+        value: "Begin datum",
+        "class": "text-lg"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetInput"], {
+        id: "start_date",
+        "class": "mt-1 block",
+        type: "datetime-local",
+        modelValue: $setup.form.start_date,
+        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+          return $setup.form.start_date = $event;
+        }),
+        required: "",
+        autofocus: ""
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetLabel"], {
+        "for": "end_date",
+        value: "Eind datum",
+        "class": "text-lg"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetInput"], {
+        id: "end_date",
+        "class": "mt-1 block",
+        type: "datetime-local",
+        modelValue: $setup.form.end_date,
+        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+          return $setup.form.end_date = $event;
+        }),
+        required: "",
+        autofocus: ""
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" customer information "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetLabel"], {
+        value: "Is de klant een bedrijf?",
+        "class": "text-lg"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        id: "is_company",
+        "class": "mt-0 block self-center mr-3",
+        type: "checkbox",
+        "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+          return $setup.is_company = $event;
+        })
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $setup.is_company]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetLabel"], {
+        "class": "text-lg",
+        "for": "is_company",
+        value: "Ja"
+      })])]), $setup.is_company ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetLabel"], {
+        "for": "customer",
+        value: "Bedrijfsnaam",
+        "class": "text-lg"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetInput"], {
+        id: "customer",
+        "class": "mt-1 block w-full lg:w-1/2",
+        type: "text",
+        modelValue: $setup.form.customer,
+        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+          return $setup.form.customer = $event;
+        }),
+        required: ""
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetLabel"], {
+        "for": "contact",
+        value: "Contactpersoon",
+        "class": "text-lg"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetInput"], {
+        id: "contact",
+        "class": "mt-1 block w-full lg:w-1/2",
+        type: "text",
+        modelValue: $setup.form.contact,
+        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+          return $setup.form.contact = $event;
+        }),
+        required: ""
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetLabel"], {
+        "for": "contact_phone",
+        value: "Telefoonnummer contactpersoon",
+        "class": "text-lg"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetInput"], {
+        id: "contact_phone",
+        "class": "mt-1 block w-full lg:w-1/2",
+        type: "tel",
+        modelValue: $setup.form.contact_phone,
+        "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
+          return $setup.form.contact_phone = $event;
+        }),
+        required: ""
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetLabel"], {
+        "for": "contact_email",
+        value: "E-mailadres contactpersoon",
+        "class": "text-lg"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["JetInput"], {
+        id: "contact_email",
+        "class": "mt-1 block w-full lg:w-1/2",
+        type: "email",
+        modelValue: $setup.form.contact_email,
+        "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
+          return $setup.form.contact_email = $event;
+        }),
+        required: ""
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Add users to project  "), _hoisted_14], 32
+      /* HYDRATE_EVENTS */
+      )])])];
+    }),
+    _: 1
+    /* STABLE */
+
   });
 }
 
