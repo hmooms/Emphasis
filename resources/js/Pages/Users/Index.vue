@@ -9,7 +9,7 @@ defineProps({
 
 Inertia.reload();
 
-let editUser = (id) => {
+const editUser = (id) => {
     Inertia.get(`/user/profile/${id}`);
 };
 
