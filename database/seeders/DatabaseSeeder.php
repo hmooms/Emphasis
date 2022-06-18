@@ -37,8 +37,11 @@ class DatabaseSeeder extends Seeder
         // create completed project
         DB::table('projects')->insert([
             'title' => 'completed project',
-            'customer' => 'Customer',
             'description' => 'A great invention to solve the worlds biggest problem, bad internet speed',
+            'customer' => 'Customer Company',
+            'contact' => 'Company contact',
+            'contact_phone' => '04729385739',
+            'contact_email' => 'contact@company.com',
             'start_date' => new \DateTime(date('m/d/Y H:i:s', strtotime("-3 week"))),
             'end_date' => new \DateTime(date('m/d/Y H:i:s', strtotime("-3 day"))),
             'is_completed' => true
@@ -46,10 +49,14 @@ class DatabaseSeeder extends Seeder
 
         DB::table('projects')->insert([
             'title' => 'overdue project',
-            'customer' => 'Customer',
             'description' => 'kinda slow project',
+            'customer' => 'Customer Company',
+            'contact' => 'Company contact',
+            'contact_phone' => '04729385739',
+            'contact_email' => 'contact@company.com',
             'start_date' => new \DateTime(date('m/d/Y H:i:s', strtotime("-3 week"))),
-            'end_date' => new \DateTime(date('m/d/Y H:i:s', strtotime("-3 day"))),            'is_completed' => false
+            'end_date' => new \DateTime(date('m/d/Y H:i:s', strtotime("-3 day"))),
+            'is_completed' => false
         ]);
 
         $users = User::where('is_admin', false)->get();

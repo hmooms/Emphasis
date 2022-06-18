@@ -25,8 +25,11 @@ class ProjectFactory extends Factory
     {
         return [
             'title' => $this->faker->words(3, true),
-            'customer' => $this->faker->company(),
             'description' => $this->faker->paragraph(),
+            'customer' => $this->faker->company(),
+            'contact' => $this->faker->name(),
+            'contact_phone' => $this->faker->phoneNumber(),
+            'contact_email' => $this->faker->safeEmail(),
             'start_date' => $this->faker->dateTimeBetween('-3 weeks', '-5 days'),
             'end_date' => $this->faker->dateTimeBetween('+1 day', '+3 weeks'),
             'is_completed' => false,
