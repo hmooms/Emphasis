@@ -3,6 +3,7 @@
 use Laravel\Jetstream\Http\Controllers\Inertia\UserProfileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProjectsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -14,6 +15,8 @@ Route::middleware('admin')->group(function () {
     Route::post('/user', [UsersController::class, 'store']);
     Route::get('/user/profile/{id}', [UsersController::class, 'show']);
     Route::delete('/user', [UsersController::class, 'delete'])->name('user.delete')->middleware('confirm.password');
+
+    Route::get('/project/create', [ProjectsController::class, 'create'])->name('project.create');
 });
 
 
