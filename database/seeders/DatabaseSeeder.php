@@ -62,13 +62,10 @@ class DatabaseSeeder extends Seeder
         $users = User::where('is_admin', false)->get();
 
 
-        // itterate over each project and add a rondom user and add all admin
+        // itterate over each project and add a random user
         Project::all()->each(function($project) use ($users) {
             $project->users()->attach(
                 $users->random(rand(1, 3))->pluck('id')->toArray()
-            );
-            $project->users()->attach(
-                User::where('is_admin', true)->get()->pluck('id')->toArray()
             );
         });
 
