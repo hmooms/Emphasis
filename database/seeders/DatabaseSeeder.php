@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         // create admin user
         DB::table('users')->insert([
             'name' => 'Admin',
-            'email' => 'admin@account.com',
+            'email' => 'admin@account.nl',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'phone' => '0612341234',

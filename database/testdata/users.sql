@@ -9,4 +9,4 @@ INSERT INTO users (name, email, email_verified_at, phone, password, is_admin, re
 ('Justus White V', 'yblanda@example.com', '2022-05-20 10:20:52', '7635574991', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'reRCsGfNc1', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
 ('Eden Schinner', 'maverick99@example.org', '2022-05-20 10:20:52', '2441398061', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'TamXN28cji', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
 ('Liliane Wyman', 'nona.dooley@example.com', '2022-05-20 10:20:52', '1736838959', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'tNw34zaPvY', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
-('Admin', 'admin@account.com', '2022-05-20 10:20:52', '0612341234', '$2y$10$9LfA/C5kMZ7OBZ4MWC3nWupEpss4LsguES4SOH8KojpzODtjrHCNm', true, 'ptkCwhPFyt', NULL, NULL);
+('Admin', 'admin@account.nl', '2022-05-20 10:20:52', '0612341234', '$2y$10$9LfA/C5kMZ7OBZ4MWC3nWupEpss4LsguES4SOH8KojpzODtjrHCNm', true, 'ptkCwhPFyt', NULL, NULL);
