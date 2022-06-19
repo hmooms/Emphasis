@@ -1,12 +1,12 @@
-INSERT INTO users (id, name, email, email_verified_at, phone, password, is_admin, remember_token, created_at, updated_at) VALUES
-(1, 'Quinn Jaskolski', 'lsenger@example.net', '2022-05-20 10:20:52', '0250655716', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'IyqY3RPLpX', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
-(2, 'Ms. Bette Waelchi', 'predovic.murphy@example.com', '2022-05-20 10:20:52', '2492123571', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'Clrp0UUey5', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
-(3, 'Cruz Feest Sr.', 'ioberbrunner@example.net', '2022-05-20 10:20:52', '9808061416', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'JjDlPJlkew', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
-(4, 'Marquis Lehner', 'maria58@example.com', '2022-05-20 10:20:52', '4427068163', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'EsJgI4d4cQ', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
-(5, 'Dr. Doug Will', 'flatley.orville@example.org', '2022-05-20 10:20:52', '2049224495', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'R2NskJIciC', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
-(6, 'Lia Murray MD', 'broderick36@example.org', '2022-05-20 10:20:52', '1456990437', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, '0ubq4upJ45', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
-(7, 'Sonia Hilpert PhD', 'krunolfsdottir@example.org', '2022-05-20 10:20:52', '7430877918', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'hWzbQR1lFD', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
-(8, 'Justus White V', 'yblanda@example.com', '2022-05-20 10:20:52', '7635574991', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'reRCsGfNc1', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
-(9, 'Eden Schinner', 'maverick99@example.org', '2022-05-20 10:20:52', '2441398061', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'TamXN28cji', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
-(10, 'Liliane Wyman', 'nona.dooley@example.com', '2022-05-20 10:20:52', '1736838959', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'tNw34zaPvY', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
-(11, 'Admin', 'admin@account.com', '2022-05-20 10:20:52', '0612341234', '$2y$10$9LfA/C5kMZ7OBZ4MWC3nWupEpss4LsguES4SOH8KojpzODtjrHCNm', true, 'ptkCwhPFyt', NULL, NULL);
+INSERT INTO users (name, email, email_verified_at, phone, password, is_admin, remember_token, created_at, updated_at) VALUES
+('Quinn Jaskolski', 'lsenger@example.net', '2022-05-20 10:20:52', '0250655716', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'IyqY3RPLpX', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
+('Ms. Bette Waelchi', 'predovic.murphy@example.com', '2022-05-20 10:20:52', '2492123571', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'Clrp0UUey5', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
+('Cruz Feest Sr.', 'ioberbrunner@example.net', '2022-05-20 10:20:52', '9808061416', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'JjDlPJlkew', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
+('Marquis Lehner', 'maria58@example.com', '2022-05-20 10:20:52', '4427068163', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'EsJgI4d4cQ', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
+('Dr. Doug Will', 'flatley.orville@example.org', '2022-05-20 10:20:52', '2049224495', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'R2NskJIciC', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
+('Lia Murray MD', 'broderick36@example.org', '2022-05-20 10:20:52', '1456990437', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, '0ubq4upJ45', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
+('Sonia Hilpert PhD', 'krunolfsdottir@example.org', '2022-05-20 10:20:52', '7430877918', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'hWzbQR1lFD', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
+('Justus White V', 'yblanda@example.com', '2022-05-20 10:20:52', '7635574991', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'reRCsGfNc1', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
+('Eden Schinner', 'maverick99@example.org', '2022-05-20 10:20:52', '2441398061', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'TamXN28cji', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
+('Liliane Wyman', 'nona.dooley@example.com', '2022-05-20 10:20:52', '1736838959', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false, 'tNw34zaPvY', '2022-05-20 10:20:52', '2022-05-20 10:20:52'),
+('Admin', 'admin@account.com', '2022-05-20 10:20:52', '0612341234', '$2y$10$9LfA/C5kMZ7OBZ4MWC3nWupEpss4LsguES4SOH8KojpzODtjrHCNm', true, 'ptkCwhPFyt', NULL, NULL);
