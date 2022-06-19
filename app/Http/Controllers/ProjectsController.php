@@ -38,10 +38,7 @@ class ProjectsController extends Controller
 
         // create new project
         $project = new Project($validated);
-
-        // tmp
-        $project->is_completed = false;
-
+        
         // save to db
         $project->save();
         

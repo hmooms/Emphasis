@@ -68,9 +68,9 @@ const teamMemberName = (id) => {
 
 let is_company = ref(false);
 
-// const submit = () => {
-//     Inertia.post()
-// }
+const submit = () => {
+    Inertia.post(route('project.store'), form)
+}
 
 </script>
 

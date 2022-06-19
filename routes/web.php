@@ -19,6 +19,7 @@ Route::middleware('admin')->group(function () {
 
     // project routes
     Route::get('/project/create', [ProjectsController::class, 'create'])->name('project.create');
+    Route::post('/project', [ProjectsController::class, 'store'])->name('project.store');
 });
 
 
