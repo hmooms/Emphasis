@@ -24,7 +24,6 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
-
         //  validate
         $validated = $request->validate([
             'email' => 'required|unique:users|max:255|email',
