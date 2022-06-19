@@ -23,7 +23,7 @@ class CreateProjectsTable extends Migration
             $table->string('contact_email');
             $table->datetime('start_date');
             $table->datetime('end_date');
-            $table->boolean('is_completed');
+            $table->boolean('is_completed')->default(false);
             $table->timestamps();
         });
     }
