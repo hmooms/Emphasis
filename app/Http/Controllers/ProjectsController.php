@@ -48,6 +48,6 @@ class ProjectsController extends Controller
         }
 
         // go back to dashboard
-        return redirect('Dashboard');
+        return redirect(route('dashboard'));
     }
 }
