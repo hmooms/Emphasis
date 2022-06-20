@@ -4,9 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
-class UserOrAdmin
+class MemberOrAdmin
 {
     /**
      * Handle an incoming request.
@@ -17,9 +17,9 @@ class UserOrAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->id === $request->id || Auth::user()->is_admin ){
+        if (Auth::user()->projects->contains($request->id)  || Auth::user()->is_admin ){
             return $next($request);
         }
-        return back();
+        return redirect(route('dashboard'));
     }
 }
