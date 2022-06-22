@@ -44,7 +44,7 @@ const submit = () => {
 
         <div class="flex justify-between mb-3 ml-7 lg:mb-6 lg:ml-0">
             <div class="flex items-center">
-                <h1 class="text-3xl text-dark-font ">Project {{ project.title }} {{ isEditingProject ? 'bijwerken' : ''
+                <h1 class="text-3xl text-dark-font ">Project {{ isEditingProject ? 'bijwerken' : 'overzicht'
                 }}</h1>
             </div>
         </div>
@@ -55,7 +55,7 @@ const submit = () => {
                 <form v-if="isEditingProject" @submit.prevent="submit">
                     <ProjectForm :users="props.users" :form="form" />
                     <button type="submit"
-                        class="px-3 py-2 bg-primary text-light-font hover:bg-dark-font">Aanmaken</button>
+                        class="px-3 py-2 bg-primary text-light-font hover:bg-dark-font">Bijwerken</button>
                 </form>
                 <!-- not editing -->
                 <div v-else>
