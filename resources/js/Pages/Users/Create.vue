@@ -1,16 +1,16 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { Inertia } from '@inertiajs/inertia';
-import { reactive } from 'vue';
 import JetInput from '../../Jetstream/Input.vue';
 import JetLabel from '../../Jetstream/Label.vue';
+import { Inertia } from '@inertiajs/inertia';
+import { reactive } from 'vue';
 
 let form = reactive({
-    'email': '',
-    'password': '',
-    'name': '',
-    'phone': '',
-    'is_admin': false
+    email: '',
+    password: '',
+    name: '',
+    phone: '',
+    is_admin: false
 });
 
 

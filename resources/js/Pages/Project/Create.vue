@@ -2,7 +2,7 @@
 import AppLayout from '../../Layouts/AppLayout.vue';
 import ProjectForm from './Partials/ProjectForm.vue';
 import { Inertia } from '@inertiajs/inertia';
-import { reactive, ref } from 'vue';
+import { reactive } from 'vue';
 
 
 const props = defineProps({

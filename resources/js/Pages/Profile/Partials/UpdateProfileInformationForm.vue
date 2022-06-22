@@ -4,17 +4,17 @@ import JetFormSection from '@/Jetstream/FormSection.vue';
 import JetInput from '@/Jetstream/Input.vue';
 import JetLabel from '@/Jetstream/Label.vue';
 import JetActionMessage from '@/Jetstream/ActionMessage.vue';
-import { reactive } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
+import { reactive } from 'vue';
 
 const props = defineProps({
     user: Object,
 });
 
 let form = reactive({
-    'name': props.user.name,
-    'email': props.user.email,
-    'phone': props.user.phone,
+    name: props.user.name,
+    email: props.user.email,
+    phone: props.user.phone,
 });
 
 

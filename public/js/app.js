@@ -20673,8 +20673,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Jetstream/Input.vue */ "./resources/js/Jetstream/Input.vue");
 /* harmony import */ var _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/Label.vue */ "./resources/js/Jetstream/Label.vue");
 /* harmony import */ var _Jetstream_ActionMessage_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Jetstream/ActionMessage.vue */ "./resources/js/Jetstream/ActionMessage.vue");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
 
@@ -20690,14 +20690,14 @@ __webpack_require__.r(__webpack_exports__);
     var expose = _ref.expose;
     expose();
     var props = __props;
-    var form = (0,vue__WEBPACK_IMPORTED_MODULE_5__.reactive)({
-      'name': props.user.name,
-      'email': props.user.email,
-      'phone': props.user.phone
+    var form = (0,vue__WEBPACK_IMPORTED_MODULE_6__.reactive)({
+      name: props.user.name,
+      email: props.user.email,
+      phone: props.user.phone
     });
 
     var updateProfileInformation = function updateProfileInformation() {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__.Inertia.put("/user/".concat(props.user.id), form);
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia.put("/user/".concat(props.user.id), form);
     };
 
     var __returned__ = {
@@ -20709,8 +20709,8 @@ __webpack_require__.r(__webpack_exports__);
       JetInput: _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
       JetLabel: _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
       JetActionMessage: _Jetstream_ActionMessage_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-      reactive: vue__WEBPACK_IMPORTED_MODULE_5__.reactive,
-      Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__.Inertia
+      Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia,
+      reactive: vue__WEBPACK_IMPORTED_MODULE_6__.reactive
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -20811,8 +20811,7 @@ __webpack_require__.r(__webpack_exports__);
       AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       ProjectForm: _Partials_ProjectForm_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
       Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia,
-      reactive: vue__WEBPACK_IMPORTED_MODULE_3__.reactive,
-      ref: vue__WEBPACK_IMPORTED_MODULE_3__.ref
+      reactive: vue__WEBPACK_IMPORTED_MODULE_3__.reactive
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -21139,6 +21138,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Partials_DeleteProject_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Partials/DeleteProject.vue */ "./resources/js/Pages/Project/Partials/DeleteProject.vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+
 
 
 
@@ -21157,7 +21158,7 @@ __webpack_require__.r(__webpack_exports__);
     expose();
     var props = __props;
     var isEditingProject = (0,vue__WEBPACK_IMPORTED_MODULE_5__.ref)(false);
-    var form = (0,vue__WEBPACK_IMPORTED_MODULE_5__.reactive)({
+    var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_7__.useForm)({
       title: props.project.title,
       description: props.project.description,
       customer: props.project.customer,
@@ -21174,8 +21175,21 @@ __webpack_require__.r(__webpack_exports__);
       isEditingProject.value = true;
     };
 
+    var validate = function validate() {
+      if (form.team.length < 1) {
+        form.errors.team = "Je moet minstens 1 teamlid toevoegen aan dit project.";
+        return false;
+      }
+
+      return true;
+    };
+
     var submit = function submit() {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__.Inertia.put(route('project.update', props.project.id), form);
+      if (validate()) {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__.Inertia.put(route('project.update', props.project.id), form, {
+          onSuccess: isEditingProject.value = false
+        });
+      }
     };
 
     var __returned__ = {
@@ -21183,15 +21197,16 @@ __webpack_require__.r(__webpack_exports__);
       props: props,
       form: form,
       startEditing: startEditing,
+      validate: validate,
       submit: submit,
       AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       ProjectForm: _Partials_ProjectForm_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
       ProjectInformation: _Partials_ProjectInformation_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
       Button: _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
       DeleteProject: _Partials_DeleteProject_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-      reactive: vue__WEBPACK_IMPORTED_MODULE_5__.reactive,
       ref: vue__WEBPACK_IMPORTED_MODULE_5__.ref,
-      Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__.Inertia
+      Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_6__.Inertia,
+      useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_7__.useForm
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -21215,10 +21230,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Jetstream/Input.vue */ "./resources/js/Jetstream/Input.vue");
-/* harmony import */ var _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Jetstream/Label.vue */ "./resources/js/Jetstream/Label.vue");
+/* harmony import */ var _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Jetstream/Input.vue */ "./resources/js/Jetstream/Input.vue");
+/* harmony import */ var _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Jetstream/Label.vue */ "./resources/js/Jetstream/Label.vue");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
 
@@ -21228,26 +21243,26 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var form = (0,vue__WEBPACK_IMPORTED_MODULE_2__.reactive)({
-      'email': '',
-      'password': '',
-      'name': '',
-      'phone': '',
-      'is_admin': false
+    var form = (0,vue__WEBPACK_IMPORTED_MODULE_4__.reactive)({
+      email: '',
+      password: '',
+      name: '',
+      phone: '',
+      is_admin: false
     });
 
     var submit = function submit() {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/user', form);
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia.post('/user', form);
     };
 
     var __returned__ = {
       form: form,
       submit: submit,
       AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-      Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia,
-      reactive: vue__WEBPACK_IMPORTED_MODULE_2__.reactive,
-      JetInput: _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-      JetLabel: _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+      JetInput: _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+      JetLabel: _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+      Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_3__.Inertia,
+      reactive: vue__WEBPACK_IMPORTED_MODULE_4__.reactive
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
