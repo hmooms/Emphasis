@@ -1,6 +1,6 @@
 <script setup>
 import JetLabel from '@/Jetstream/Label.vue';
-import { dateFormat } from './DateController.js';
+import { dateFormat } from '../../../DateController.js';
 
 const props = defineProps({
     project: Object
