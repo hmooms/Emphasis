@@ -14,7 +14,7 @@ let form = reactive({
 });
 
 
-let submit = () => {
+const submit = () => {
     Inertia.post('/user', form);
 };
 

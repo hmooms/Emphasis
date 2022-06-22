@@ -92,7 +92,14 @@ const logout = () => {
                                                 Uitloggen
                                             </JetDropdownLink>
                                         </form>
+
+                                        <div class="border-t border-gray-100" />
+
+                                        <div class="py-2 px-4">
+                                            <p class="text-gray-700 text-sm">version: 0.2</p>
+                                        </div>
                                     </template>
+
                                 </JetDropdown>
                             </div>
                         </div>
@@ -155,6 +162,10 @@ const logout = () => {
                                     Uitloggen
                                 </JetResponsiveNavLink>
                             </form>
+
+                            <div class="py-2 px-4">
+                                <p class="text-gray-700 text-sm">version: 0.2</p>
+                            </div>
 
                         </div>
                     </div>

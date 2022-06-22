@@ -24,7 +24,6 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
-
         //  validate
         $validated = $request->validate([
             'email' => 'required|unique:users|max:255|email',
@@ -35,9 +34,8 @@ class UsersController extends Controller
         ]);
         // create a user
         $user = new User($validated);
-        // create tmp password
-
         
+        // encrypt password
         $user->encryptPassword();
 
         // save to db
@@ -53,6 +51,11 @@ class UsersController extends Controller
         ]);
     }
 
+    /*
+    * Valideer de gegeven data
+    * vind de gebruiker en werk die bij
+    * ga terug naar vorige pagina 
+    */
     public function updateProfile(Request $request, $id)
     {
         $validated = $request->validate([
@@ -64,7 +67,7 @@ class UsersController extends Controller
 
         return back();
     }
-
+    
     public function delete(Request $request)
     {
         User::find($request->id)->delete();

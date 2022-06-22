@@ -27,7 +27,7 @@ const confirmUserDeletion = () => {
 };
 
 const deleteUser = () => {
-    form.delete(route('user-delete'), {
+    form.delete(route('user.delete'), {
         preserveScroll: true,
         onSuccess: () => closeModal(),
         onError: () => passwordInput.value.focus(),
@@ -76,7 +76,7 @@ const closeModal = () => {
 
                     <div class="mt-4">
                         <JetInput ref="passwordInput" v-model="form.password" type="password" class="mt-1 block w-3/4"
-                            placeholder="Password" @keyup.enter="deleteUser" />
+                            placeholder="Wachtwoord" @keyup.enter="deleteUser" />
 
                         <JetInputError :message="form.errors.password" class="mt-2" />
                     </div>

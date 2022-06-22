@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\EnsureUserIsAdmin::class,
         'confirm.password' => \App\Http\Middleware\ConfirmPassword::class,
         'user.or.admin' => \App\Http\Middleware\UserOrAdmin::class,
+        'member.or.admin' => \App\Http\Middleware\MemberOrAdmin::class,
     ];
 }
