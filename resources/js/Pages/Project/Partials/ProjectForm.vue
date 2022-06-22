@@ -3,6 +3,7 @@ import JetInput from '@/Jetstream/Input.vue';
 import JetLabel from '@/Jetstream/Label.vue';
 import SelectUsers from './SelectUsers.vue';
 import { ref } from 'vue';
+import { dateFormat } from '../../../DateController.js';
 
 const props = defineProps({
     users: Array,
@@ -10,6 +11,10 @@ const props = defineProps({
 });
 
 const is_company = ref(props.form.company !== null);
+
+const reformatDate = (date) => {
+    return dateFormat(date, "yyyy-mm-dd'T'HH:MM")
+}
 </script>
 
 <template>
@@ -29,12 +34,17 @@ const is_company = ref(props.form.company !== null);
     <div class="mb-2 flex flex-col md:flex-row">
         <div class="mb-2 md:mr-3 md:mb-0">
             <JetLabel for="start_date" value="Begin datum" class="text-lg" />
-            <JetInput id="start_date" class="mt-1 block" type="datetime-local" v-model="props.form.start_date"
+            <JetInput v-if="props.form.start_date" id="start_date" class="mt-1 block" type="datetime-local"
+                v-model="props.form.start_date" :value="reformatDate(props.form.start_date)" required />
+            <JetInput v-else id="start_date" class="mt-1 block" type="datetime-local" v-model="props.form.start_date"
                 required />
         </div>
         <div>
             <JetLabel for="end_date" value="Eind datum" class="text-lg" />
-            <JetInput id="end_date" class="mt-1 block" type="datetime-local" v-model="props.form.end_date" required />
+            <JetInput v-if="props.form.end_date" id="end_date" class="mt-1 block" type="datetime-local"
+                v-model="props.form.end_date" :value="reformatDate(props.form.end_date)" required />
+            <JetInput v-else id="end_date" class="mt-1 block" type="datetime-local" v-model="props.form.end_date"
+                required />
         </div>
     </div>
     <!-- customer information -->
