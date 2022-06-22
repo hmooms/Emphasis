@@ -63,7 +63,7 @@ const submit = () => {
 
                     <Button @click="startEditing" class="mr-2"> Bijwerken</Button>
 
-                    <DeleteProject :project="props.project" />
+                    <DeleteProject v-if="$page.props.user.is_admin" :project="props.project" />
                 </div>
             </div>
         </div>

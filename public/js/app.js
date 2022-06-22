@@ -24322,11 +24322,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
         /* STABLE */
 
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["DeleteProject"], {
+      }), _ctx.$page.props.user.is_admin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["DeleteProject"], {
+        key: 0,
         project: $setup.props.project
       }, null, 8
       /* PROPS */
-      , ["project"])])], 2112
+      , ["project"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 2112
       /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
       ))])])];
     }),
