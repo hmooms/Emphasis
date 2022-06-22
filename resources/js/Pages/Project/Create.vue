@@ -2,14 +2,14 @@
 import AppLayout from '../../Layouts/AppLayout.vue';
 import ProjectForm from './Partials/ProjectForm.vue';
 import { Inertia } from '@inertiajs/inertia';
-import { reactive } from 'vue';
+import { useForm } from '@inertiajs/inertia-vue3';
 
 
 const props = defineProps({
     users: Array
 });
 
-let form = reactive({
+let form = useForm({
     title: '',
     description: '',
     customer: '',

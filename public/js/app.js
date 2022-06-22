@@ -20775,7 +20775,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Partials_ProjectForm_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Partials/ProjectForm.vue */ "./resources/js/Pages/Project/Partials/ProjectForm.vue");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 
 
 
@@ -20788,7 +20788,7 @@ __webpack_require__.r(__webpack_exports__);
     var expose = _ref.expose;
     expose();
     var props = __props;
-    var form = (0,vue__WEBPACK_IMPORTED_MODULE_3__.reactive)({
+    var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.useForm)({
       title: '',
       description: '',
       customer: '',
@@ -20811,7 +20811,7 @@ __webpack_require__.r(__webpack_exports__);
       AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       ProjectForm: _Partials_ProjectForm_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
       Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia,
-      reactive: vue__WEBPACK_IMPORTED_MODULE_3__.reactive
+      useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.useForm
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
