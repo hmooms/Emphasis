@@ -20800,13 +20800,25 @@ __webpack_require__.r(__webpack_exports__);
       team: []
     });
 
+    var validate = function validate() {
+      if (form.team.length < 1) {
+        form.errors.team = "Je moet minstens 1 teamlid toevoegen aan dit project.";
+        return false;
+      }
+
+      return true;
+    };
+
     var submit = function submit() {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post(route('project.store'), form);
+      if (validate()) {
+        form.post(route('project.store'));
+      }
     };
 
     var __returned__ = {
       props: props,
       form: form,
+      validate: validate,
       submit: submit,
       AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       ProjectForm: _Partials_ProjectForm_vue__WEBPACK_IMPORTED_MODULE_1__["default"],

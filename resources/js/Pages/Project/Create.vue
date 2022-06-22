@@ -21,8 +21,18 @@ let form = useForm({
     team: [],
 });
 
+const validate = () => {
+    if (form.team.length < 1) {
+        form.errors.team = "Je moet minstens 1 teamlid toevoegen aan dit project.";
+        return false;
+    }
+    return true;
+}
+
 const submit = () => {
-    Inertia.post(route('project.store'), form)
+    if (validate()) {
+        form.post(route('project.store'));
+    }
 };
 
 </script>
