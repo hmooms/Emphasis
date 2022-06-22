@@ -55,6 +55,7 @@ const teamMemberName = (id) => {
 </script>
 
 <template>
+
     <JetLabel for="team" value="Team samenstellen" class="text-lg" />
 
     <div id="team" class="lg:w-1/2">
