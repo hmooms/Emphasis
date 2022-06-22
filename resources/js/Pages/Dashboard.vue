@@ -2,7 +2,7 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Inertia } from '@inertiajs/inertia';
 import { Link } from '@inertiajs/inertia-vue3';
-import { calculateRemainingTime, isOverdue } from './Project/Partials/TimeRemainingCalculator.js';
+import { calculateRemainingTime, isOverdue } from './Project/Partials/DateController.js';
 
 defineProps({
     projects: Array,
