@@ -4,8 +4,9 @@ import ProjectForm from './Partials/ProjectForm.vue';
 import ProjectInformation from './Partials/ProjectInformation.vue';
 import Button from '@/Jetstream/Button.vue';
 import DeleteProject from './Partials/DeleteProject.vue';
-import { reactive, ref } from 'vue';
-import { Inertia } from '@inertiajs/inertia';
+import { ref } from 'vue';
+import { useForm } from '@inertiajs/inertia-vue3';
+
 
 const isEditingProject = ref(false);
 
@@ -15,7 +16,7 @@ const props = defineProps({
     users: Array
 })
 
-let form = reactive({
+let form = useForm({
     title: props.project.title,
     description: props.project.description,
     customer: props.project.customer,
@@ -32,23 +33,31 @@ const startEditing = () => {
     isEditingProject.value = true;
 }
 
+const validate = () => {
+    if (form.team.length < 1) {
+        form.errors.team = "Je moet minstens 1 teamlid toevoegen aan dit project.";
+        return false;
+    }
+    return true;
+}
+
 const submit = () => {
-    Inertia.put(route('project.update', props.project.id), form);
+    if (validate()) {
+        form.put(route('project.update', props.project.id), {
+            onSuccess: isEditingProject.value = false,
+        });
+    }
 }
 </script>
 
 <template>
-
     <AppLayout title="Project">
-
-
         <div class="flex justify-between mb-3 ml-7 lg:mb-6 lg:ml-0">
             <div class="flex items-center">
                 <h1 class="text-3xl text-dark-font ">Project {{ isEditingProject ? 'bijwerken' : 'overzicht'
                 }}</h1>
             </div>
         </div>
-
         <div class="flex flex-col">
             <div class="overflow-x-auto lg:bg-white-bg px-7 lg:py-6">
                 <!-- editing -->
