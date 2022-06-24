@@ -1,4 +1,5 @@
 export const calculateRemainingTime = (dueTime) => {
+	// is parsed so it is the same format as currentTime
     return calcuateInterval(Date.parse(dueTime) - currentTime);
 }
 
