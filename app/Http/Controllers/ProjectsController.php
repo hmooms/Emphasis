@@ -56,7 +56,7 @@ class ProjectsController extends Controller
     {
         return Inertia::render('Project/Show', [
             'project' => Project::with('users')->where('id', $id)->first(),
-            'team' => Project::find($id)->users->pluck("id")->toArray(),
+            'team' => Project::find($id)->users->pluck("id"),
             'users' => User::where('is_admin', false)->get()
         ]);
     }
@@ -72,7 +72,8 @@ class ProjectsController extends Controller
             'customer' => 'nullable|string|max:50',
             'contact' => 'required|string|max:30',
             'contact_phone' => 'required|string|max:15',
-            'contact_email' => 'required|email|max:50'
+            'contact_email' => 'required|email|max:50',
+            'is_completed' => 'required|boolean'
         ]);
         // validate the team members
         $validatedUsers = $request->validate([
@@ -95,7 +96,7 @@ class ProjectsController extends Controller
         // check if the selected users were not already attached to the project 
         // only attach those that were not already attached
         foreach ($validatedUsers["team"] as $user){
-            if (!in_array($user, $project->users->pluck('id')->toArray())) {
+            if (!in_array($user, $project->users->pluck('id'))) {
                 $project->users()->attach($user);
             }
         }
